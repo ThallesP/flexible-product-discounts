@@ -1,0 +1,27 @@
+query Input {
+  cart {
+    lines {
+      id
+      quantity
+      merchandise {
+        __typename
+        ... on ProductVariant {
+          id
+          product {
+            id
+            title
+            productType
+          }
+        }
+      }
+    }
+  }
+  discount {
+    metafield(
+      namespace: "$app:discount-function"
+      key: "function-configuration"
+    ) {
+      value
+    }
+  }
+}

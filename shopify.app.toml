@@ -1,0 +1,24 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+client_id = "1aa1042261c5e3bf1c7949166a2ac88a"
+name = "product-scheduler-js"
+application_url = "https://example.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[access_scopes]
+scopes = "write_products,read_products,write_discounts"
+
+[auth]
+redirect_urls = [ 
+  "https://example.com/api/auth",
+  "https://example.com/auth/callback"
+]
